@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# install nginx
+
+URL="https://www.youtube.com/watch?v=7C9EYka6fIU"
+VAR="rewrite ^/redirect_me $URL permanent;"
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo chown -R "$USER:$USER" /var/www/html
+sudo chown -R "$USER:$USER" /etc/nginx/sites-available/
+echo "Holberton School" > /var/www/html/index.html
+sed -i "19i $VAR" /etc/nginx/sites-available/default
+echo "Ceci n\'est pas une page." > /var/www/html/custom_404.html
+sed -i 'error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /var/www/html;\ninternal;\n}' /etc/nginx/sites-available/default
+sudo service nginx restart
