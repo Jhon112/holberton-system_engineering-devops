@@ -3,5 +3,6 @@
 
 sudo apt-get update -y
 sudo apt-get install nginx -y
+sudo rm -r /var/www/html/*
 sudo echo "Holberton School" >> /var/www/html/index.html
 sudo systemctl restart nginx
