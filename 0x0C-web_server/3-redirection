@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # install nginx
 
-VAR="rewrite ^/redirect_me https://www.youtube.com/watch?v=HELDauyokPE permanent;"
+URL="https://www.youtube.com/watch?v=7C9EYka6fIU"
+VAR="rewrite ^/redirect_me $URL permanent;"
 sudo apt-get update -y
 sudo apt-get install nginx -y
 sudo chown -R $USER:$USER /var/www/html
