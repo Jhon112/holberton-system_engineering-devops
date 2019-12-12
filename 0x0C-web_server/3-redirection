@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# install nginx
+
+VAR="rewrite ^/redirect_me https://www.youtube.com/watch?v=HELDauyokPE permanent;"
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo chown -R $USER:$USER /var/www/html
+sudo chown -R $USER:$USER /etc/nginx/sites-available/
+sudo echo "Holberton School" > /var/www/html/index.html
+sed -i "19i $VAR" /etc/nginx/sites-available/default
+sudo service nginx restart
