@@ -6,7 +6,7 @@ echo "frontend my_frontend
         bind *:80
 	mode http
         stats uri /haproxy?stats
-        default_backend my_backend" >> /etc/haproxy/haproxy.cfg 
+        default_backend my_backend" >> /etc/haproxy/haproxy.cfg
 echo "backend my_backend
         balance roundrobin
         server 904-web-01 34.73.68.168:80 check
