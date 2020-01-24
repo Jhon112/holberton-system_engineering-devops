@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# backup of database
+date=`date +"%d-%m-%Y"`
+if [ "$#" == 1 ]; then
+  mysqldump -uroot -p"$1" --all-databases > backup.sql
+  tar -czvf "${date}.tar.gz" backup.sql
+fi
