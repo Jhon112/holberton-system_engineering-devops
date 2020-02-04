@@ -36,6 +36,5 @@ if __name__ == "__main__":
             quoting=csv.QUOTE_ALL
         )
 
-        writer.writeheader()
         for todo in data_list:
             writer.writerow(todo)
