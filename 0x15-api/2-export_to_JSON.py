@@ -24,12 +24,12 @@ if __name__ == "__main__":
     }
     for todo in todos:
         data_list.get('{}'.format(user.get('id'))).append(
-        {
-            'task': todo.get('title'),
-            'completed': todo.get('completed'),
-            'username': user.get('username'),
-        }
-        ) 
+            {
+                'task': todo.get('title'),
+                'completed': todo.get('completed'),
+                'username': user.get('username'),
+            }
+        )
 
     with open('{}.json'.format(user.get('id')), 'w') as json_file:
         json.dump(data_list, json_file, indent=2)
