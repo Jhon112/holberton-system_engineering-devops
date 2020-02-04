@@ -28,4 +28,4 @@ if __name__ == "__main__":
     ))
 
     for todo_complete in todos_completed:
-        print('\t{}'.format(todo_complete.get('title')))
+        print('\t {}'.format(todo_complete.get('title')))
