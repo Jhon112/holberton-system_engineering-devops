@@ -23,7 +23,7 @@ if __name__ == "__main__":
     for todo in todos:
         data_list.append({
             'userId': todo.get('userId'),
-            'username': user.get('name'),
+            'username': user.get('username'),
             'completed': todo.get('completed'),
             'title': todo.get('title'),
         })
