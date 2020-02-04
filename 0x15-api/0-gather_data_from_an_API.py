@@ -8,7 +8,9 @@ import sys
 
 
 if __name__ == "__main__":
-    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1])
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(
+        sys.argv[1]
+    )
     r_user = requests.get(user_url)
     user = r_user.json()
 
@@ -16,8 +18,10 @@ if __name__ == "__main__":
     r_todos = requests.get(todo_url, params={'userId': user.get('id')})
     todos = r_todos.json()
 
-    todos_completed = list(filter(lambda todo: todo if todo.get('completed') is True
-                        else None, todos))
+    filtered_todos = filter(lambda todo: todo if todo.get('completed') is True
+                            else None, todos)
+
+    todos_completed = list(filtered_todos)
 
     print("Employee {} is done with tasks({}/{}):".format(
         user.get('name'), len(todos_completed), len(todos)
