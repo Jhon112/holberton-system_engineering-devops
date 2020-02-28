@@ -1,0 +1,16 @@
+server {
+	listen 80 default_server;
+	add_header X-Served-By 904-web-01;
+	listen [::]:80 default_server;
+	error_page 404 /custom_404.html;
+	location = /custom_404.html {
+		root /var/www/html;
+		internal;
+	}
+	root /var/www/html;
+
+	location /airbnb-onepage {
+		include proxy_params;
+		proxy_pass http://127.0.0.1:5000;
+	}
+}
